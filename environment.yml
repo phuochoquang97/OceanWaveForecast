@@ -1,0 +1,25 @@
+name: ramp-tephra
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - numpy
+  - scipy
+  - pandas
+  - scikit-learn>=0.22
+  - missingno
+  - matplotlib
+  - seaborn
+  - ipywidgets
+  - joblib
+  - lightgbm
+  - xgboost
+  - catboost
+  - tensorflow-cpu
+  - pytorch-cpu
+  - torchvision-cpu
+  
+  - pip
+  - pip:
+    - ramp-workflow==0.6.0
+    - osfclient
