@@ -6,7 +6,7 @@ import rampwf as rw
 
 problem_title = "Ocean Wave Forecast"
 
-Predictions = rw.make_regression()
+Predictions = rw.prediction_types.make_regression()
 workflow = rw.workflows.Regressor()
 
 score_types = [
