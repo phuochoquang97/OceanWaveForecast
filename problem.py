@@ -1,13 +1,12 @@
 import os
 import pandas as pd
-import numpy as np
 from sklearn.model_selection import StratifiedShuffleSplit
 
 import rampwf as rw
 
 problem_title = "Ocean Wave Forecast"
 
-Predictions = rw.make_regressor()
+Predictions = rw.prediction_types.make_regression()
 workflow = rw.workflows.Regressor()
 
 score_types = [
