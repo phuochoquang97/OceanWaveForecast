@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ### IF YOU WANT TO USE THIS SCRIPT, UNCOMMENT ALL AND SPECIFY THE FILE PATH HERE :
 
 # file_path = r'C:\Users\betze\Downloads\mfwamglocep_2024021812_R20240219_12H.nc'
@@ -61,3 +62,6 @@ except Exception as e:
     print(f"Error: {e}")
 
     """
+=======
+
+>>>>>>> e63bacedd32291f1e3815856c090c4794158479c
