@@ -1,6 +1,7 @@
 import os
 import pandas as pd
-from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.model_selection import StratifiedShuffleSplit,KFold
+import numpy as np
 
 import rampwf as rw
 
@@ -14,13 +15,13 @@ score_types = [
 ]
 
 _target_column_name = "VPED"
-_ignore_column_names = ["time"]
+#_ignore_column_names = ["time"]
 
 
 def _read_data(path, f_name):
     data = pd.read_csv(os.path.join(path, "data", f_name))
-    y_array = data[_target_column_name].values
-    X_df = data.drop([_target_column_name] + _ignore_column_names, axis=1)
+    y_array = np.array(data[_target_column_name].astype(float).values)
+    X_df = np.array(data.drop(columns=[_target_column_name], axis=1))
     return X_df, y_array
 
 
@@ -35,5 +36,5 @@ def get_test_data(path="."):
 
 
 def get_cv(X, y):
-    cv = StratifiedShuffleSplit(n_splits=8, test_size=0.2, random_state=42)
-    return cv.split(X, y)
+    cv = KFold(n_splits=5, random_state=42, shuffle=True)
+    return cv.split(X,y)

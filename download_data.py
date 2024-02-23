@@ -1,12 +1,14 @@
+### IF YOU WANT TO USE THIS SCRIPT, UNCOMMENT ALL AND SPECIFY THE FILE PATH HERE :
+
+# file_path = r'C:\Users\betze\Downloads\mfwamglocep_2024021812_R20240219_12H.nc'
+
+"""
+
 import netCDF4 as nc
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-# PUT YOUR FILE PATH HERE
-
-file_path = r'C:\Users\betze\Downloads\mfwamglocep_2024021812_R20240219_12H.nc'
-
-output_folder = 'data'
+output_folder = 'data5'
 
 try:
     with nc.Dataset(file_path, 'r') as file:
@@ -38,25 +40,24 @@ try:
         df.dropna(inplace=True)
         
         # Separate the column 'VPED' as the target value
-        y = df['VPED']
-        X = df.drop(columns=['VPED'])
+        test_size = 0.2  # Adjust as needed
+
+        # Perform the random split
+        df_train, df_test = train_test_split(df, test_size=test_size, random_state=42)
+
+        # Sample 1% for manageable size
+
+        df_train = df_train.sample(frac=0.01, random_state=42)
+        df_test = df_test.sample(frac=0.01, random_state=42)
         
-        # Perform train/test split
-        X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-        
-        # Sample one percent of the data
-        X_train_sampled = X_train.sample(frac=0.01, random_state=42)
-        X_test_sampled = X_test.sample(frac=0.01, random_state=42)
-        y_train_sampled = y_train.sample(frac=0.01, random_state=42)
-        y_test_sampled = y_test.sample(frac=0.01, random_state=42)
         
         # Write to CSV files
-        X_train_sampled.to_csv(output_folder + '/X_train.csv', index=False)
-        X_test_sampled.to_csv(output_folder + '/X_test.csv', index=False)
-        y_train_sampled.to_csv(output_folder + '/y_train.csv', index=False, header=False)  # Exclude header for target
-        y_test_sampled.to_csv(output_folder + '/y_test.csv', index=False, header=False)  # Exclude header for target
+        df_train.to_csv(output_folder + '/train.csv', index=False)
+        df_test.to_csv(output_folder + '/test.csv', index=False)
         
         print("Data processed and saved successfully.")
             
 except Exception as e:
     print(f"Error: {e}")
+
+    """
