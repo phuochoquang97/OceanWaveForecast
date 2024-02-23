@@ -18,7 +18,7 @@ dependencies:
   - tensorflow-cpu
   - pytorch-cpu
   - torchvision-cpu
-  
+  - netCDF4
   - pip
   - pip:
     - ramp-workflow==0.6.0
