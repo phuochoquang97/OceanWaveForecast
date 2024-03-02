@@ -14,6 +14,7 @@ open bash/command prompt
 
 ```bash
 pip install -U -r requirements.txt
+```
 
 If you are using `conda`, we have provided another file named `environment.yml` to install all dependencies.
 
@@ -33,13 +34,14 @@ open bash/command prompt
 
 ```bash
 ramp-test --submission my_submission
+```
 
 
 You can get more information regarding this command ramp-test by using the the command below
 
 ```bash
 ramp-test --help
-
+```
 ### For Further Information
 
 If you want more information regarding the `ramp-workflow` you can go to following space.
