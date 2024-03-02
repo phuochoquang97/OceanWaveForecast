@@ -12,9 +12,8 @@ Pavlo Poliuha, Junjie Chen, Pablo Mollá, Quang Phuoc Ho, Kumari Nageeta, Louis 
 To run a submission and the notebook file `wave_forecast_starting_kit.ipynb` you will need the some dependencies listed in `requirements.txt` file. You can install the dependencies with the following command:
 open bash/command prompt
 
-```pip install -U -r requirements.txt
-
-```
+```bash
+pip install -U -r requirements.txt
 
 If you are using `conda`, we have provided another file named `environment.yml` to install all dependencies.
 
@@ -32,15 +31,14 @@ For instance: for `my_submission`, it should be located in `submissions/my_submi
 To run a specific submission, you can use the `ramp-test` command:
 open bash/command prompt
 
-```ramp-test --submission my_submission
+```bash
+ramp-test --submission my_submission
 
-```
 
 You can get more information regarding this command ramp-test by using the the command below
 
-```ramp-test --help
-
-```
+```bash
+ramp-test --help
 
 ### For Further Information
 
