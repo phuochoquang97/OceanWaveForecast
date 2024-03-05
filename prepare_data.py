@@ -9,7 +9,7 @@ import netCDF4 as nc
 import pandas as pd
 from sklearn.model_selection import train_test_split
 
-output_folder = 'data5'
+output_folder = 'data'
 
 try:
     with nc.Dataset(file_path, 'r') as file:
